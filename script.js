@@ -34,6 +34,7 @@ modal.addEventListener('mousedown', function(e) {
     isDragging = true;
     offsetX = e.clientX - modal.getBoundingClientRect().left;
     offsetY = e.clientY - modal.getBoundingClientRect().top;
+    e.preventDefault(); // Prevent default behavior (e.g., text selection)
 });
 
 // Event listener for mousemove (dragging)
@@ -47,6 +48,17 @@ document.addEventListener('mousemove', function(e) {
 // Event listener for mouseup (stop dragging)
 document.addEventListener('mouseup', function() {
     isDragging = false;
+});
+
+// Event listener for entering full screen
+document.addEventListener('fullscreenchange', function() {
+    if (document.fullscreenElement) {
+        // Hide the modal when entering full screen
+        modal.style.display = 'none';
+    } else {
+        // Show the modal when exiting full screen
+        modal.style.display = 'block';
+    }
 });
 
 // Append the modal to the document body
