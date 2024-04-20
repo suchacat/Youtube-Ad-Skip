@@ -1,1 +1,6 @@
+To use this code, put this in your bookmarklet: javascript:(function() {
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/gh/suchacat/Youtube-Ad-Skip@latest/script.js';
+    document.body.appendChild(script);
+})();
 
